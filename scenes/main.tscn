@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://fqe0tuxenpsk"]
+
+[ext_resource type="Texture2D" uid="uid://diehe1xxmbyxq" path="res://assets/assets/sprites/background.png" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://gmjqwi41bfmu" path="res://scenes/asteroids/big_asteroid.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node2D" unique_id=1967288105]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1887323128]
+position = Vector2(604.00006, 308)
+scale = Vector2(0.70048505, 0.70048505)
+texture = ExtResource("1_o5qli")
+
+[node name="BigAsteroid" parent="." unique_id=2017230841 instance=ExtResource("2_0wfyh")]
