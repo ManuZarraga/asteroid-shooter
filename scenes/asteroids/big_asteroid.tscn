@@ -8,6 +8,7 @@ radius = 78.025635
 
 [node name="BigAsteroid" type="Area2D" unique_id=2017230841]
 script = ExtResource("1_y2s20")
+speed = 300
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1621624633]
