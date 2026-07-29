@@ -7,7 +7,7 @@
 radius = 8.0
 height = 72.0
 
-[node name="Laser" type="Area2D" unique_id=959407124]
+[node name="Laser" type="Area2D" unique_id=959407124 groups=["laser"]]
 script = ExtResource("1_jplwq")
 speed = 1000
 metadata/_edit_group_ = true
@@ -19,3 +19,9 @@ texture = ExtResource("1_4wgfr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1084298152]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_htemk")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1740560692]
+position = Vector2(-49, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -3,16 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://pryfiyeihkeq" path="res://assets/assets/sprites/rock-big.png" id="1_6lffe"]
 [ext_resource type="Script" uid="uid://dj1ily5xsxh18" path="res://scenes/asteroids/asteroid.gd" id="1_y2s20"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nmq3h"]
-radius = 78.025635
-
-[node name="BigAsteroid" type="Area2D" unique_id=2017230841]
+[node name="BigAsteroid" type="Area2D" unique_id=2017230841 groups=["asteroids"]]
+scale = Vector2(0.9, 0.9)
 script = ExtResource("1_y2s20")
-speed = 300
+min_random_speed = 300.0
+max_random_speed = 400.0
+min_random_rotation = -180.0
+max_random_rotation = 180.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1621624633]
 texture = ExtResource("1_6lffe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=626574400]
-shape = SubResource("CircleShape2D_nmq3h")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=84791979]
+polygon = PackedVector2Array(32.85714, -91.428566, 94.285706, -22.857141, 58.571426, 81.428566, -37.142857, 91.428566, -94.285706, 21.42857, -68.57143, -65.71428)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

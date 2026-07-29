@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://djosp6kdrn2bh" path="res://assets/assets/sprites/ship.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bqrr7vj2up408" path="res://scenes/player/player.gd" id="1_dovo2"]
 
-[node name="Player" type="CharacterBody2D" unique_id=675732325]
-position = Vector2(5, -1)
+[node name="Player" type="CharacterBody2D" unique_id=675732325 groups=["player"]]
 script = ExtResource("1_dovo2")
 speed = 450.0
 metadata/_edit_group_ = true
@@ -18,4 +17,11 @@ texture = ExtResource("1_8afob")
 position = Vector2(3.9999998, 0.99999994)
 rotation = 1.5707964
 scale = Vector2(0.7, 0.7)
-polygon = PackedVector2Array(-2.372904e-06, -54.28571, -84.285706, 54.285713, 74.28571, 52.857136)
+polygon = PackedVector2Array(-74.28571, 48.571426, -72.85714, 37.14286, -7.1428585, -48.571426, 5.714283, -48.571426, 69.99999, 37.142853, 69.99999, 48.57142, 30, 48.571426, 18.571428, 61.428566, -21.428568, 61.428566, -32.85714, 48.571426)
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1806763391]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea" unique_id=349568785]
+polygon = PackedVector2Array(-23, -50, 38, -4, 38, 5, -22, 50, -30, 50, -30, 22, -39, 14, -39, -14, -30, -22, -30, -51)
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

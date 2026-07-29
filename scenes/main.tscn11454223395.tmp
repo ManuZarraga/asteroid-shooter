@@ -6,6 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://xbv13g0ihs3q" path="res://scenes/player/player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ccbsjvxt6cqsu" path="res://scenes/laser/laser.tscn" id="6_tefeu"]
 
+[sub_resource type="GDScript" id="GDScript_tbgi4"]
+script/source = "extends Marker2D
+class_name LaserSpawner
+
+
+
+# Called when the node enters the scene tree for the first time.
+
+
+
+
+func _on_timer_timeout() -> void:
+	create_laser()
+	#print(randf_range(100.0, 200.0))
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(1165, 37)
 
@@ -26,9 +42,15 @@ scale = Vector2(0.9500404, 0.7835489)
 texture = ExtResource("1_o5qli")
 
 [node name="Player" parent="." unique_id=675732325 instance=ExtResource("3_sugp2")]
-z_index = 1
 position = Vector2(103, 341)
+script = null
+
+[node name="LaserSpawner" type="Marker2D" parent="Player" unique_id=356050227]
+script = SubResource("GDScript_tbgi4")
 laser_scene = ExtResource("6_tefeu")
+laser_speed = 400
+
+[node name="Timer" type="Timer" parent="Player/LaserSpawner" unique_id=627173042]
 
 [node name="Walls" type="Node2D" parent="." unique_id=457026116]
 
