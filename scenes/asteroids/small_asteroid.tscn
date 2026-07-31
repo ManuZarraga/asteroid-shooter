@@ -3,8 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://ggbkvs6bk76t" path="res://assets/assets/sprites/rock-small.png" id="1_ckhff"]
 [ext_resource type="Script" uid="uid://dj1ily5xsxh18" path="res://scenes/asteroids/asteroid.gd" id="1_kfbcv"]
 
-[node name="SmallAsteroid" type="Area2D" unique_id=858545860]
+[node name="SmallAsteroid" type="Area2D" unique_id=858545860 groups=["asteroids"]]
 script = ExtResource("1_kfbcv")
+min_random_speed = 200.0
+max_random_speed = 300.0
+min_random_rotation = -180.0
+max_random_rotation = 180.0
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1940998221]
@@ -12,3 +16,5 @@ texture = ExtResource("1_ckhff")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=461236403]
 polygon = PackedVector2Array(-18, -39, 31, -35, 39, 14, 1, 39, -27, 29, -40, -8)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

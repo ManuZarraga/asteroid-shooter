@@ -1,6 +1,6 @@
 extends Marker2D
 
-@export var big_asteroid_scene: PackedScene
+@export var asteroids: Array[PackedScene]
 @export var min_y: float
 @export var max_y: float
 # Called when the node enters the scene tree for the first time.
@@ -10,10 +10,11 @@ extends Marker2D
 # tomar la referencia de la escena de asteroide
 # con instantiate() creo una instancia o copia de la escena, asignada a la variable
 func create_asteroid():
-	var big_asteroid_instance = big_asteroid_scene.instantiate()
-	add_child(big_asteroid_instance)
+	var random_asteroid_scene = asteroids.pick_random()
+	var random_asteroid_instance = random_asteroid_scene.instantiate()
+	add_child(random_asteroid_instance)
 	var random_y = randf_range(min_y, max_y)
-	big_asteroid_instance.global_position.y = random_y
+	random_asteroid_instance.global_position.y = random_y
 
 
 func _on_timer_timeout() -> void:
