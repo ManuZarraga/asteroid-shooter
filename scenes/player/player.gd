@@ -1,9 +1,17 @@
 extends CharacterBody2D
 
 @export var laser_scene: PackedScene
+@export var explosion_scene: PackedScene
 @export var speed: float
 
 func _physics_process(delta):
+	# Si el juego está terminado, devolviendo 'return' salimos del método.
+	# Todo el bloque abajo del return se omite.
+	if GameManager.is_game_over:
+		queue_free()
+		spawn_explosion()
+		return
+		
 	if Input.is_action_just_pressed("shoot"):
 		shoot_laser()
 	
@@ -14,7 +22,6 @@ func process_inputs():
 	var y_input = Input.get_axis("up", "down")
 	var x_input = Input.get_axis("left", "right")
 	velocity = Vector2(x_input, y_input) * speed
-	
 	
 func create_laser():
 	var laser_instance = laser_scene.instantiate()
@@ -29,3 +36,10 @@ func shoot_laser():
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("asteroids"):
 		queue_free()
+		spawn_explosion()
+		GameManager.set_is_game_over(true)
+
+func spawn_explosion():
+	var explosion = explosion_scene.instantiate()
+	get_parent().add_child(explosion)
+	explosion.global_position = global_position

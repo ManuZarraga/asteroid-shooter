@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://brgyfvv0cu1nl"]
+
+[ext_resource type="LabelSettings" uid="uid://dvel01ivglm8d" path="res://resources/game_over.tres" id="1_0uvy0"]
+[ext_resource type="Script" uid="uid://85057ar3cj8l" path="res://scenes/UI/game_over/game_over_ui.gd" id="1_1yph5"]
+[ext_resource type="LabelSettings" uid="uid://igt0bn2ojr4y" path="res://resources/hud.tres" id="2_1yph5"]
+[ext_resource type="FontFile" uid="uid://bb2tco7k0dtuo" path="res://assets/assets/fonts/Zyzol.otf" id="3_qvp1s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_514eb"]
+font = ExtResource("3_qvp1s")
+font_color = Color(1, 0.3019608, 0.23137255, 0.77254903)
+
+[node name="GameOverUI" type="Control" unique_id=1721304368]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1yph5")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1309878967]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=57685802]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1136462643]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1038253793]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = ExtResource("1_0uvy0")
+
+[node name="PressSpaceLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=820268901]
+layout_mode = 2
+text = "Press Space to Restart"
+label_settings = ExtResource("2_1yph5")
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2123066913]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your Score: 1000"
+label_settings = SubResource("LabelSettings_514eb")
+horizontal_alignment = 1

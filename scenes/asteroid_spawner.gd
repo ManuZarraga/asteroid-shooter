@@ -3,6 +3,9 @@ extends Marker2D
 @export var asteroids: Array[PackedScene]
 @export var min_y: float
 @export var max_y: float
+
+@onready var timer: Timer = $Timer
+
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
 #	create_asteroid()
@@ -10,6 +13,9 @@ extends Marker2D
 # tomar la referencia de la escena de asteroide
 # con instantiate() creo una instancia o copia de la escena, asignada a la variable
 func create_asteroid():
+	if GameManager.is_game_over:
+		timer.stop()
+	
 	var random_asteroid_scene = asteroids.pick_random()
 	var random_asteroid_instance = random_asteroid_scene.instantiate()
 	add_child(random_asteroid_instance)

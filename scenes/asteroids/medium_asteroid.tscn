@@ -9,6 +9,7 @@ min_random_speed = 250.0
 max_random_speed = 350.0
 min_random_rotation = -180.0
 max_random_rotation = 180.0
+points = 10
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1576260830]

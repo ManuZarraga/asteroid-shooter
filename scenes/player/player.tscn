@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://djosp6kdrn2bh" path="res://assets/assets/sprites/ship.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bqrr7vj2up408" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://byyyd8emo6mvq" path="res://scenes/explosion/explosion.tscn" id="2_gmlin"]
 
 [node name="Player" type="CharacterBody2D" unique_id=675732325 groups=["player"]]
 script = ExtResource("1_dovo2")
+explosion_scene = ExtResource("2_gmlin")
 speed = 450.0
 metadata/_edit_group_ = true
 
