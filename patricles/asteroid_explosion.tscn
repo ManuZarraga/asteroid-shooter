@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bs21idb6ne6l8"]
+
+[ext_resource type="Script" uid="uid://blr2vq1sna8ru" path="res://patricles/asteroid_explosion.gd" id="1_olrh4"]
+
+[sub_resource type="Gradient" id="Gradient_3g68p"]
+colors = PackedColorArray(0.9647059, 0.30980393, 0, 1, 1, 0.64705884, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q4lci"]
+gradient = SubResource("Gradient_3g68p")
+
+[sub_resource type="Curve" id="Curve_8plnx"]
+_data = [Vector2(0, 1), 0.0, -1.4353318, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pj0hq"]
+curve = SubResource("Curve_8plnx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_14cdr"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_pj0hq")
+color_initial_ramp = SubResource("GradientTexture1D_q4lci")
+
+[node name="AsteroidExplosion" type="GPUParticles2D" unique_id=768662958]
+emitting = false
+amount = 30
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_14cdr")
+script = ExtResource("1_olrh4")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

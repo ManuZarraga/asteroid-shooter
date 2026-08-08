@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var explosion_scene: PackedScene
 @export var speed: float
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Si el juego está terminado, devolviendo 'return' salimos del método.
 	# Todo el bloque abajo del return se omite.
 	if GameManager.is_game_over:

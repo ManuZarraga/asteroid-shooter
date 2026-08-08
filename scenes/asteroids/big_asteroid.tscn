@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pryfiyeihkeq" path="res://assets/assets/sprites/rock-big.png" id="1_6lffe"]
 [ext_resource type="Script" uid="uid://dj1ily5xsxh18" path="res://scenes/asteroids/asteroid.gd" id="1_y2s20"]
+[ext_resource type="PackedScene" uid="uid://bs21idb6ne6l8" path="res://patricles/asteroid_explosion.tscn" id="2_ra15y"]
 
 [node name="BigAsteroid" type="Area2D" unique_id=2017230841 groups=["asteroids"]]
 scale = Vector2(0.9, 0.9)
@@ -11,6 +12,7 @@ max_random_speed = 400.0
 min_random_rotation = -180.0
 max_random_rotation = 180.0
 points = 5
+explosion_scene = ExtResource("2_ra15y")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1621624633]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b53j56fpnk7c0"]
+
+[ext_resource type="Texture2D" uid="uid://cidg7yfrkm8nb" path="res://assets/assets/sprites/powerupYellow_bolt.png" id="1_00raf"]
+[ext_resource type="Script" uid="uid://b52bmfk28dehn" path="res://scenes/powerUp/power_up.gd" id="1_mc4l4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(33, 32)
+
+[node name="PowerUp" type="Area2D" unique_id=1109672289]
+script = ExtResource("1_mc4l4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005955426]
+texture = ExtResource("1_00raf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=580900217]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_htemk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

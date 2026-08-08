@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ggbkvs6bk76t" path="res://assets/assets/sprites/rock-small.png" id="1_ckhff"]
 [ext_resource type="Script" uid="uid://dj1ily5xsxh18" path="res://scenes/asteroids/asteroid.gd" id="1_kfbcv"]
+[ext_resource type="PackedScene" uid="uid://bs21idb6ne6l8" path="res://patricles/asteroid_explosion.tscn" id="2_ooo1b"]
 
 [node name="SmallAsteroid" type="Area2D" unique_id=858545860 groups=["asteroids"]]
 script = ExtResource("1_kfbcv")
@@ -10,6 +11,7 @@ max_random_speed = 300.0
 min_random_rotation = -180.0
 max_random_rotation = 180.0
 points = 15
+explosion_scene = ExtResource("2_ooo1b")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1940998221]
